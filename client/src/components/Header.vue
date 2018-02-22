@@ -2,12 +2,14 @@
   <v-toolbar app color="primary" dark flat>
     <v-toolbar-title class="mr-4">PowerApp</v-toolbar-title>
 
-    <!--TODO implement me -->
-    <!-- <v-toolbar-items>
-      <v-btn flat dark>
-        Devices
+    <v-toolbar-items>
+      <v-btn
+        flat
+        dark
+        @click="navigateTo({name: 'devices'})">
+          Devices
       </v-btn>
-    </v-toolbar-items> -->
+    </v-toolbar-items>
 
     <v-spacer></v-spacer>
 
@@ -26,6 +28,13 @@
         @click="navigateTo({name: 'login'})">
           Login
       </v-btn>
+      <v-btn
+        v-if="$store.state.isUserLoggedIn"
+        flat
+        dark
+        @click="logout">
+          Log Out
+      </v-btn>
     </v-toolbar-items>
 
   </v-toolbar>
@@ -36,6 +45,13 @@ export default {
   methods: {
     navigateTo (route) {
       this.$router.push(route)
+    },
+    logout () {
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+      this.$router.push({
+        name: 'root'
+      })
     }
   }
 }

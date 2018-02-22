@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
+import Devices from '@/components/Devices'
 import 'babel-polyfill'
 
 Vue.use(Router)
@@ -22,6 +23,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/devices',
+      name: 'devices',
+      component: Devices
     }
   ]
 })
