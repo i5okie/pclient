@@ -1,11 +1,7 @@
 <template>
   <v-layout align-center justify-center>
     <v-flex xs12 sm8 md4>
-      <v-card class="elevation-12">
-        <v-toolbar dark color="primary">
-          <v-toolbar-title>Register</v-toolbar-title>
-        </v-toolbar>
-        <v-card-text>
+      <panel title="Register">
           <v-form>
             <v-text-field
               prepend-icon="email"
@@ -28,18 +24,17 @@
               autocomplete="new-password"></v-text-field>
           </v-form>
           <v-alert type="warning" dismissible icon="warning" transition="scale-transition" v-model="alert" v-html="error"></v-alert>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
           <v-btn color="primary" @click="register">Register</v-btn>
-        </v-card-actions>
-      </v-card>
+        </v-card-text>
+      </panel>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+import Panel from '@/components/Panel'
+
 export default {
   name: 'Register',
   data () {
@@ -65,6 +60,9 @@ export default {
         this.alert = true
       }
     }
+  },
+  components: {
+    Panel
   }
 }
 </script>

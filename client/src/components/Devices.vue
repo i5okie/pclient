@@ -1,49 +1,36 @@
 <template>
-  <div class="devices">
-    <div class="filter">
-      <label>
-        <input type="checkbox" value="LEP" v-model="sites">
-        Kelowna
-      </label>
-      <label>
-        <input type="checkbox" value="FTB" v-model="sites">
-        Mississauga
-      </label>
-      <label>
-        <input type="checkbox" value="DCC" v-model="sites">
-        Vaughn
-      </label>
-      <label>
-        <input type="checkbox" value="IWC" v-model="sites">
-        Vancouver Vault
-      </label>
-      <label>
-        <input type="checkbox" value="SWG" v-model="sites">
-        Vancouver Downtown
-      </label>
-      <label>
-        <input type="checkbox" value="Virt" v-model="sites">
-        Virtual
-      </label>
-    </div>
-    <div v-if="devices && devices.length">
-      <ul v-if="devices">
-        <li
-          v-for="(device, index) in devices"
-          v-bind:device="device"
-          v-bind:key="index">
-          {{device.label}}
-          <!-- <device :device="device" :sites="sites"></device> -->
-          <!-- <p><strong>{{device.label}}</strong></p> -->
-        </li>
-      </ul>
-      <ul v-if="errors && errors.length">
-        <li v-for="error of errors" :key="error">
-          {{error.message}}
-        </li>
-      </ul>
-    </div>
-  </div>
+  <v-layout row>
+    <v-flex xs12 sm8 offset-sm4>
+      <v-card>
+        <v-toolbar dark color="primary" flat>
+          <v-toolbar-side-icon></v-toolbar-side-icon>
+          <v-toolbar-title>Devices</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn icon>
+            <v-icon>search</v-icon>
+          </v-btn>
+        </v-toolbar>
+        <v-list two-line>
+          <template v-for="(device, index) in devices">
+            <v-list-tile-content>
+              <v-list-title>{{device.label}}</v-list-title>
+              <v-list-tile-sub-title class="text--primary">
+                <span v-if="device.ipAddress">
+                  {{device.ipAddress}}
+                </span>
+                <span v-else>
+                  Virtual
+                </span>
+              </v-list-tile-sub-title>
+            </v-list-tile-content>
+            <v-divider v-if="index + 1 < devices.length" :key="`divider-${index}`"></v-divider>
+          </template>
+        </v-list>
+        <v-card-text>
+        </v-card-text>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
