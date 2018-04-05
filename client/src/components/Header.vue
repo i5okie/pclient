@@ -1,7 +1,7 @@
 <template>
-  <v-toolbar app color="primary" dark flat>
+  <v-toolbar app color="cyan lighten-2" dark>
+    <v-toolbar-side-icon></v-toolbar-side-icon>
     <v-toolbar-title class="mr-4">PowerApp</v-toolbar-title>
-
     <v-toolbar-items>
       <v-btn
         flat

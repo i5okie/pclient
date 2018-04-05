@@ -1,12 +1,12 @@
 <template>
   <v-app app>
     <page-header></page-header>
-      <v-content>
+      <v-content style="background-color: #888">
         <v-container fluid>
           <router-view></router-view>
         </v-container>
       </v-content>
-      <v-footer app></v-footer>
+      <v-footer app dark> boom</v-footer>
   </v-app>
 </template>
 

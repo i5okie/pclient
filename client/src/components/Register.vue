@@ -25,7 +25,6 @@
           </v-form>
           <v-alert type="warning" dismissible icon="warning" transition="scale-transition" v-model="alert" v-html="error"></v-alert>
           <v-btn color="primary" @click="register">Register</v-btn>
-        </v-card-text>
       </panel>
     </v-flex>
   </v-layout>
