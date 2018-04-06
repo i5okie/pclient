@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
 import Devices from '@/components/Devices'
+import Dashboard from '@/components/Dashboard'
 import 'babel-polyfill'
 
 Vue.use(Router)
@@ -28,6 +29,11 @@ export default new Router({
       path: '/devices',
       name: 'devices',
       component: Devices
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard
     }
   ]
 })

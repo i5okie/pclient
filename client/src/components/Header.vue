@@ -6,6 +6,12 @@
       <v-btn
         flat
         dark
+        @click="navigateTo({name: 'dashboard'})">
+          Dashboard
+      </v-btn>
+      <v-btn
+        flat
+        dark
         @click="navigateTo({name: 'devices'})">
           Devices
       </v-btn>
